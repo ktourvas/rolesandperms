@@ -23,8 +23,6 @@ class CreateModelPermissionsTable extends Migration
 
             $table->tinyInteger('viewany')->default(0);
 
-            $table->tinyInteger('view')->default(0);
-
             $table->tinyInteger('create')->default(0);
 
             $table->tinyInteger('update')->default(0);

@@ -43,7 +43,7 @@ class UserPermissionsTest extends BaseTestCase
     }
 
     /**
-     * create a user model and give testing user rights on it
+     * create a user instance and give testing user rights on it
      */
 
     private function setData() {

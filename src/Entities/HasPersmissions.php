@@ -4,6 +4,10 @@ namespace ktourvas\rolesandperms\Entities;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Trait HasPersmissions
+ * @package ktourvas\rolesandperms\Entities
+ */
 trait HasPersmissions {
 
     /**
@@ -32,7 +36,7 @@ trait HasPersmissions {
                 ->where(function($q) use ($model) {
 
                     $q
-                        ->where('view', 1)
+                        ->where('viewany', 1)
                         ->orWhereHas('records', function($q) use ($model) {
                             $q
                                 ->where( 'record_id', $model->id )
