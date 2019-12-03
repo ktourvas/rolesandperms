@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use ktourvas\rolesandperms\Entities\ModelPermissionsSet;
+use ktourvas\rolesandperms\Entities\Role;
 use Orchestra\Testbench\TestCase;
 
 
@@ -39,6 +40,9 @@ class BaseTestCase extends TestCase
         $this->withFactories(__DIR__.'/../database/factories');
 
         $this->user = factory(TestUser::class)->make();
+
+        $this->adminRole = factory(Role::class)->make();
+        $this->adminRole->save();
 
         $this->user->permissions()->saveMany(
             factory(ModelPermissionsSet::class, 10)->create()
