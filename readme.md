@@ -27,9 +27,6 @@ Update App\User model with the HasPermissions and/or HasRoles traits depending o
 ```php
 use ktourvas\rolesandperms\Entities\HasPermissions;
 
-use ktourvas\rolesandperms\Entities\HasPersmissions;
-use Laravel\Passport\HasApiTokens;
-
 class User extends Authenticatable
 {
     use  HasRoles, HasPersmissions, Notifiable; 
