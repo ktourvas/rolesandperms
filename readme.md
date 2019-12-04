@@ -32,6 +32,21 @@ class User extends Authenticatable
     use  HasRoles, HasPersmissions, Notifiable; 
 ```
 ## HasRoles trait
+Provides the user model with a roles() ManyToMany relationship to the Role model  
+
+ ```php
+$user->roles()->create([
+    'name' => 'admin'
+]);
+``` 
+and a check method, returning true or false on the specified role. 
+
+```php
+$user->userIs('admin'); 
+// boolean 
+``` 
+
+
 
 ## HasPermissions trait
  
