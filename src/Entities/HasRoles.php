@@ -13,8 +13,8 @@ trait HasRoles {
     public function roles() {
         return $this->belongsToMany('ktourvas\rolesandperms\Entities\Role',
             'rap_user_roles',
-            'role_id',
-            'user_id');
+            'user_id',
+            'role_id');
     }
 
     public function userIs($role) {
