@@ -35,8 +35,8 @@ class User extends Authenticatable
 Provides the user model with a roles() ManyToMany relationship to the Role model  
 
  ```php
-$user->roles()->create([
-    'name' => 'admin'
+$user->roles()->sync([
+    Role::where('name', 'admin')->first()->id
 ]);
 ``` 
 and a check method, returning true or false on the specified role. 
