@@ -16,10 +16,11 @@ class CreateUserRolesTable extends Migration
         Schema::create('rap_user_roles', function (Blueprint $table) {
 
             $table->increments('id');
+            $table->unsignedInteger('role_id')->nullable();
 
-            $table->unsignedInteger('user_id');
-
-            $table->unsignedInteger('role_id');
+            //morph many to many relationship
+            $table->integer('rap_user_roles_id')->default(0);
+            $table->string('rap_user_roles_type')->default('');
 
             $table->timestamps();
 

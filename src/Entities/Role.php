@@ -10,4 +10,12 @@ class Role extends Model
 
     protected $fillable = [ 'name' ];
 
+    /**
+     * Get the owning commentable model.
+     */
+    public function rap_user_roleables($model)
+    {
+        return $this->morphedByMany($model, 'rap_user_roles');
+    }
+
 }

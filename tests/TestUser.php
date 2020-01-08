@@ -8,4 +8,7 @@ use ktourvas\rolesandperms\Entities\HasRoles;
 
 class TestUser extends User {
     use HasPersmissions, HasRoles;
+
+    protected $table = 'users';
+
 }

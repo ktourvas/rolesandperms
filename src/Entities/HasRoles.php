@@ -11,14 +11,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 trait HasRoles {
 
     public function roles() {
-        return $this->belongsToMany('ktourvas\rolesandperms\Entities\Role',
-            'rap_user_roles',
-            'user_id',
-            'role_id');
+        return $this->morphToMany('ktourvas\rolesandperms\Entities\Role', 'rap_user_roles');
     }
 
     public function userIs($role) {
-        return $this->roles()->where('name', $role)->exists();
+        return $this->roles()
+            ->where('name', $role)
+            ->exists();
     }
 
 }

@@ -37,9 +37,13 @@ class BaseTestCase extends TestCase
     {
         parent::setUp();
 
+        $this->loadLaravelMigrations();
+
         $this->withFactories(__DIR__.'/../database/factories');
 
         $this->user = factory(TestUser::class)->make();
+
+        $this->user->save();
 
         $this->adminRole = factory(Role::class)->make();
         $this->adminRole->save();

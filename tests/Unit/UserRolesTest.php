@@ -21,11 +21,15 @@ class UserRolesTest extends BaseTestCase
 
         $this->assertFalse( $this->user->userIs('admin') );
 
-        $this->user->roles()->sync([$role->id]);
+        $this->user->roles()->sync([
+            $role->id
+        ]);
 
         $this->user->load('roles');
 
         $this->assertTrue( $this->user->userIs('admin') );
+
+        $this->assertInstanceOf('Tests\TestUser', $role->rap_user_roleables(get_class($this->user))->first() );
 
     }
 
