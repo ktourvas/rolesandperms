@@ -19,7 +19,7 @@ class CreateModelPermissionsTable extends Migration
 
             $table->unsignedInteger('user_id')->nullable();
 
-            $table->string('policy', 100)->unique();
+            $table->string('policy', 100);
 
             $table->tinyInteger('viewany')->default(0);
 
