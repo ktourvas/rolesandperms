@@ -16,7 +16,13 @@ trait HasRoles {
 
     public function userIs($role) {
         return $this->roles()
-            ->where('name', $role)
+            ->where(function($q) use ($role) {
+                if( is_array($role) ) {
+                    $q->whereIn('name', $role);
+                } else {
+                    $q->where('name', $role);
+                }
+            })
             ->exists();
     }
 
